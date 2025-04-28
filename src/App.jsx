@@ -1,34 +1,56 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { CartProvider } from './context/CartContext';
-import Header from './components/Header/Header';
-import Footer from './components/Footer/Footer';
-import Home from './pages/Home/Home';
-import Products from './pages/Products/Products';
-import Category from './pages/Category/Category';
-import Cart from './pages/Cart/Cart';
-import SignIn from './pages/SignIn/SignIn';
-import './App.css';
+import { useEffect, useState } from 'react';
+import Header from './Components/Header';
+// import Footer from './components/Footer/Footer';
+import Home from './Pages/Home';
+import ProductListing from './Pages/ProductListing';
+import CartPage from './Pages/CartPage';
 
 
 function App() {
+  const [currentPage, setCurrentPage] = useState('home');
+  const [cart, setCart] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [furnitureData, setFurnitureData] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/Products")
+    .then(res => res.json())
+    .then(data => {
+      setFurnitureData(data);
+    })
+  },[])
+  const addToCart = (product) => {
+    setCart([...cart, product]);
+  };
+
+  const removeFromCart = (productId) => {
+    setCart(cart.filter(item => item.id !== productId));
+  };
+
   return (
-    <CartProvider>
-      <Router>
-        <div className="app">
-          <Header />
-          <main>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/products" element={<Products />} />
-              <Route path="/category/:categoryName" element={<Category />} />
-              <Route path="/cart" element={<Cart />} />
-              <Route path="/signin" element={<SignIn />} />
-            </Routes>
-          </main>
-          <Footer />
-        </div>
-      </Router>
-    </CartProvider>
+    <div className="App">
+      <Header cartCount={cart.length} setCurrentPage={setCurrentPage} />
+      
+      <main className="container mx-auto p-4">
+        {currentPage === 'home' && <Home setCurrentPage={setCurrentPage} />}
+        {currentPage === 'products' && (
+          <ProductListing 
+            furnitureData={furnitureData}
+            selectedCategory={selectedCategory}
+            setSelectedCategory={setSelectedCategory}
+            addToCart={addToCart}
+          />
+        )}
+        {currentPage === 'cart' && (
+          <CartPage 
+            cart={cart} 
+            removeFromCart={removeFromCart}
+          />
+        )}
+      </main>
+      
+      {/* <Footer /> */}
+    </div>
   );
 }
 

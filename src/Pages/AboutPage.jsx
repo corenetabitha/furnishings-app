@@ -5,11 +5,9 @@ export default function AboutPage() {
         
         <div className="grid md:grid-cols-2 gap-8">
           <div>
-            <h2 className="text-2xl font-semibold mb-4">Our Story</h2>
+            <h2 className="text-2xl font-semibold mb-4">Our Contacts</h2>
             <p className="mb-4">
-              Founded in 2010, Crafty Furnishings began as a small workshop creating custom furniture 
-              for local clients. Today, we've grown into a premier destination for high-quality, 
-              stylish furnishings for every room in your home.
+              You can reach out to us via email at craftyfurnnishings@gmail.com or call us at (123) 456-7890.
             </p>
             <p className="mb-4">
               Our mission is to combine exceptional craftsmanship with contemporary design, offering 
@@ -26,7 +24,7 @@ export default function AboutPage() {
               </li>
               <li className="flex items-start">
                 <span className="text-blue-600 mr-2">✓</span>
-                <span>30-day satisfaction guarantee</span>
+                <span>6-month warranty on all goods</span>
               </li>
               <li className="flex items-start">
                 <span className="text-blue-600 mr-2">✓</span>
@@ -46,9 +44,7 @@ export default function AboutPage() {
             123 Furniture Avenue, Design District<br />
             Open Monday-Saturday 10am-7pm
           </p>
-          <button className="bg-blue-600 hover:bg-blue-700 text-white py-2 px-6 rounded">
-            Get Directions
-          </button>
+          
         </div>
       </div>
     );

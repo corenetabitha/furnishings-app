@@ -40,3 +40,121 @@
 .read-the-docs {
   color: #888;
 }
+/* Hero Section */
+.hero {
+  @apply bg-gray-800 text-white py-20 px-4 text-center;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), url('/hero-bg.jpg'));
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-content {
+  @apply max-w-3xl mx-auto;
+}
+
+.hero h1 {
+  @apply text-4xl font-bold mb-4;
+}
+
+.hero p {
+  @apply text-xl mb-8;
+}
+
+.cta-button {
+  @apply bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg;
+}
+
+/* Featured Categories */
+.featured-categories {
+  @apply py-12;
+}
+
+.featured-categories h2 {
+  @apply text-3xl font-bold text-center mb-8;
+}
+
+.category-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
+}
+
+.category-card {
+  @apply bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow;
+}
+
+.category-image {
+  @apply h-48 overflow-hidden;
+}
+
+.category-image img {
+  @apply w-full h-full object-cover transition-transform hover:scale-105;
+}
+
+.category-info {
+  @apply p-6;
+}
+
+.category-info h3 {
+  @apply text-xl font-semibold mb-2;
+}
+
+.category-info p {
+  @apply text-gray-600 mb-4;
+}
+
+.category-button {
+  @apply bg-gray-100 hover:bg-gray-200 text-gray-800 font-medium py-2 px-4 rounded;
+}
+
+/* Testimonials */
+.testimonials {
+  @apply py-12 bg-gray-50;
+}
+
+.testimonials h2 {
+  @apply text-3xl font-bold text-center mb-8;
+}
+
+.testimonial-grid {
+  @apply grid grid-cols-1 md:grid-cols-3 gap-6;
+}
+
+.testimonial-card {
+  @apply bg-white p-6 rounded-lg shadow;
+}
+
+.rating {
+  @apply text-yellow-400 mb-2;
+}
+
+.comment {
+  @apply italic mb-2;
+}
+
+.name {
+  @apply font-semibold;
+}
+
+/* Newsletter */
+.newsletter {
+  @apply py-12 bg-blue-600 text-white text-center;
+}
+
+.newsletter h2 {
+  @apply text-3xl font-bold mb-2;
+}
+
+.newsletter p {
+  @apply text-xl mb-6;
+}
+
+.newsletter-form {
+  @apply max-w-md mx-auto flex;
+}
+
+.newsletter-form input {
+  @apply flex-grow px-4 py-2 rounded-l focus:outline-none text-gray-900;
+}
+
+.newsletter-form button {
+  @apply bg-blue-800 hover:bg-blue-900 px-6 py-2 rounded-r;
+}

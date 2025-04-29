@@ -5,14 +5,21 @@ export default function CartPage({ cart, removeFromCart }) {
   const total = cart.reduce((sum, item) => sum + item.price, 0);
 
   return (
-    <div>
-      <h2 className="text-2xl mb-4">Your Cart</h2>
+    <div className="cart-page">
+      <h1 className="text-3xl font-bold mb-8">Your Shopping Cart</h1>
       
       {cart.length === 0 ? (
-        <p>Your cart is empty</p>
+        <div className="text-center py-12">
+          <p className="text-xl mb-4">Your cart is empty</p>
+          <button 
+            className="bg-blue-600 hover:bg-blue-700 text-white py-2 px-6 rounded"
+          >
+            Continue Shopping
+          </button>
+        </div>
       ) : (
-        <div className="bg-gray-100 p-4 rounded">
-          <div className="space-y-2">
+        <div className="bg-gray-100 p-6 rounded-lg">
+          <div className="space-y-4">
             {cart.map((item, index) => (
               <CartItem 
                 key={index}
